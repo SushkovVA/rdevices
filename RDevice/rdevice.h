@@ -22,9 +22,6 @@ public slots:
     virtual bool setValue(QString nameParameter, QString value);
     QStringList getParametersList();
     int getParametersCount();
-    // осторожно, вернет NULL, если нет такого параметра
-    RParameter* getParameter(int number);
-    RParameter* getParameter(QString name);
 
 signals:
     void signalParameterChanged(QString nameParameter, QString value);
@@ -34,6 +31,9 @@ protected:
 
 
 protected slots:
+    // осторожно, вернет NULL, если нет такого параметра
+    RParameter* getParameter(int number);
+    RParameter* getParameter(QString name);
     // переопределяется реальным устройством
     virtual void updateData(QString nameParameter = "") = 0;
     void parameterChanged(QString value);
