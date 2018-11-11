@@ -39,6 +39,7 @@ RRele220_4::~RRele220_4()
 void RRele220_4::updateData(QString nameParameter)
 {
     QString state = "";
+    //Если имя параметра не задано, обновляем все
     if (nameParameter == "")
     {
         state = ( bcm2835_gpio_lev(gpioDevice1) == LOW ? "on" : "off" );
